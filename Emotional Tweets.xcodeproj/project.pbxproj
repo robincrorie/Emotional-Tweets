@@ -15,13 +15,14 @@
 		1278AB1D1940E2FC0072A860 /* ETAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1278AB1C1940E2FC0072A860 /* ETAppDelegate.m */; };
 		1278AB201940E2FC0072A860 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1278AB1E1940E2FC0072A860 /* Main_iPhone.storyboard */; };
 		1278AB231940E2FC0072A860 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1278AB211940E2FC0072A860 /* Main_iPad.storyboard */; };
-		1278AB261940E2FC0072A860 /* ETViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1278AB251940E2FC0072A860 /* ETViewController.m */; };
+		1278AB261940E2FC0072A860 /* ETSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1278AB251940E2FC0072A860 /* ETSearchViewController.m */; };
 		1278AB281940E2FC0072A860 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1278AB271940E2FC0072A860 /* Images.xcassets */; };
 		1278AB2F1940E2FC0072A860 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1278AB2E1940E2FC0072A860 /* XCTest.framework */; };
 		1278AB301940E2FC0072A860 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1278AB0C1940E2FC0072A860 /* Foundation.framework */; };
 		1278AB311940E2FC0072A860 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1278AB101940E2FC0072A860 /* UIKit.framework */; };
 		1278AB391940E2FC0072A860 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1278AB371940E2FC0072A860 /* InfoPlist.strings */; };
 		1278AB3B1940E2FC0072A860 /* Emotional_TweetsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1278AB3A1940E2FC0072A860 /* Emotional_TweetsTests.m */; };
+		1278AB49194103910072A860 /* ETTweetTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1278AB48194103910072A860 /* ETTweetTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,14 +48,16 @@
 		1278AB1C1940E2FC0072A860 /* ETAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETAppDelegate.m; sourceTree = "<group>"; };
 		1278AB1F1940E2FC0072A860 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		1278AB221940E2FC0072A860 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		1278AB241940E2FC0072A860 /* ETViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETViewController.h; sourceTree = "<group>"; };
-		1278AB251940E2FC0072A860 /* ETViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETViewController.m; sourceTree = "<group>"; };
+		1278AB241940E2FC0072A860 /* ETSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ETSearchViewController.h; sourceTree = "<group>"; };
+		1278AB251940E2FC0072A860 /* ETSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ETSearchViewController.m; sourceTree = "<group>"; };
 		1278AB271940E2FC0072A860 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1278AB2D1940E2FC0072A860 /* Emotional TweetsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Emotional TweetsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1278AB2E1940E2FC0072A860 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1278AB361940E2FC0072A860 /* Emotional TweetsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Emotional TweetsTests-Info.plist"; sourceTree = "<group>"; };
 		1278AB381940E2FC0072A860 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1278AB3A1940E2FC0072A860 /* Emotional_TweetsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Emotional_TweetsTests.m; sourceTree = "<group>"; };
+		1278AB47194103910072A860 /* ETTweetTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETTweetTableViewController.h; sourceTree = "<group>"; };
+		1278AB48194103910072A860 /* ETTweetTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETTweetTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,8 +121,10 @@
 				1278AB1C1940E2FC0072A860 /* ETAppDelegate.m */,
 				1278AB1E1940E2FC0072A860 /* Main_iPhone.storyboard */,
 				1278AB211940E2FC0072A860 /* Main_iPad.storyboard */,
-				1278AB241940E2FC0072A860 /* ETViewController.h */,
-				1278AB251940E2FC0072A860 /* ETViewController.m */,
+				1278AB241940E2FC0072A860 /* ETSearchViewController.h */,
+				1278AB251940E2FC0072A860 /* ETSearchViewController.m */,
+				1278AB47194103910072A860 /* ETTweetTableViewController.h */,
+				1278AB48194103910072A860 /* ETTweetTableViewController.m */,
 				1278AB271940E2FC0072A860 /* Images.xcassets */,
 				1278AB131940E2FC0072A860 /* Supporting Files */,
 			);
@@ -254,7 +259,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1278AB261940E2FC0072A860 /* ETViewController.m in Sources */,
+				1278AB49194103910072A860 /* ETTweetTableViewController.m in Sources */,
+				1278AB261940E2FC0072A860 /* ETSearchViewController.m in Sources */,
 				1278AB191940E2FC0072A860 /* main.m in Sources */,
 				1278AB1D1940E2FC0072A860 /* ETAppDelegate.m in Sources */,
 			);

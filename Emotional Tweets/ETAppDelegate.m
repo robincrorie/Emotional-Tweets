@@ -6,13 +6,29 @@
 //  Copyright (c) 2014 Robin Crorie. All rights reserved.
 //
 
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
 #import "ETAppDelegate.h"
 
 @implementation ETAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+	[[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x067AB5)];
+	[[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+	[[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"NavBarBackground"] forBarMetrics:UIBarMetricsDefault];
+	[[UINavigationBar appearance] setBackIndicatorImage:[UIImage imageNamed:@"BackButton"]];
+    [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:[UIImage imageNamed:@"BackButton"]];
+	[[UINavigationBar appearance] setShadowImage:[UIImage imageNamed:@"NavBarShadow"]];
+	
+	NSShadow *shadow = [[NSShadow alloc] init];
+    shadow.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.4];
+    shadow.shadowOffset = CGSizeMake(1, 1);
+    [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                           [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1.0], NSForegroundColorAttributeName,
+                                                           shadow, NSShadowAttributeName,
+                                                           [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:21.0], NSFontAttributeName, nil]];
+	
     return YES;
 }
 							

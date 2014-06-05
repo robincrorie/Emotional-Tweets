@@ -1,5 +1,5 @@
 //
-//  ETViewController.h
+//  ETTweetTableViewController.h
 //  Emotional Tweets
 //
 //  Created by Robin Crorie on 05/06/2014.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ETViewController : UIViewController
+@interface ETTweetTableViewController : UITableViewController
 
 @end
