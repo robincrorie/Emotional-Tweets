@@ -27,7 +27,7 @@
 
 - (IBAction)submit:(id)sender
 {
-	[self.navigationController performSegueWithIdentifier:@"submit" sender:self];
+	[self performSegueWithIdentifier:@"submit" sender:self];
 }
 
 - (void)styleTextFields:(UIView*)view {

@@ -10,4 +10,6 @@
 
 @interface ETTweetTableViewController : UITableViewController
 
+@property (nonatomic, strong) NSMutableArray * tweets;
+
 @end

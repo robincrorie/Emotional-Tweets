@@ -23,6 +23,7 @@
 		1278AB391940E2FC0072A860 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1278AB371940E2FC0072A860 /* InfoPlist.strings */; };
 		1278AB3B1940E2FC0072A860 /* Emotional_TweetsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1278AB3A1940E2FC0072A860 /* Emotional_TweetsTests.m */; };
 		1278AB49194103910072A860 /* ETTweetTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1278AB48194103910072A860 /* ETTweetTableViewController.m */; };
+		1278AB4C194108FD0072A860 /* ETRetrieveTweets.m in Sources */ = {isa = PBXBuildFile; fileRef = 1278AB4B194108FD0072A860 /* ETRetrieveTweets.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		1278AB3A1940E2FC0072A860 /* Emotional_TweetsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Emotional_TweetsTests.m; sourceTree = "<group>"; };
 		1278AB47194103910072A860 /* ETTweetTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETTweetTableViewController.h; sourceTree = "<group>"; };
 		1278AB48194103910072A860 /* ETTweetTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETTweetTableViewController.m; sourceTree = "<group>"; };
+		1278AB4A194108FD0072A860 /* ETRetrieveTweets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETRetrieveTweets.h; sourceTree = "<group>"; };
+		1278AB4B194108FD0072A860 /* ETRetrieveTweets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETRetrieveTweets.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +128,8 @@
 				1278AB251940E2FC0072A860 /* ETSearchViewController.m */,
 				1278AB47194103910072A860 /* ETTweetTableViewController.h */,
 				1278AB48194103910072A860 /* ETTweetTableViewController.m */,
+				1278AB4A194108FD0072A860 /* ETRetrieveTweets.h */,
+				1278AB4B194108FD0072A860 /* ETRetrieveTweets.m */,
 				1278AB271940E2FC0072A860 /* Images.xcassets */,
 				1278AB131940E2FC0072A860 /* Supporting Files */,
 			);
@@ -260,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1278AB49194103910072A860 /* ETTweetTableViewController.m in Sources */,
+				1278AB4C194108FD0072A860 /* ETRetrieveTweets.m in Sources */,
 				1278AB261940E2FC0072A860 /* ETSearchViewController.m in Sources */,
 				1278AB191940E2FC0072A860 /* main.m in Sources */,
 				1278AB1D1940E2FC0072A860 /* ETAppDelegate.m in Sources */,
