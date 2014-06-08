@@ -10,6 +10,9 @@
 #import "ETTweetTableViewCell.h"
 
 @interface ETTweetTableViewController ()
+{
+	NSDateFormatter * dateFormatter;
+}
 
 @end
 
@@ -28,6 +31,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	
+	dateFormatter = [[NSDateFormatter alloc] init];
+	NSLocale * loc = [[NSLocale alloc] initWithLocaleIdentifier:@"en_UK"];
+	[dateFormatter setLocale:loc];
+	[dateFormatter setDateFormat:@"EEE MMM dd HH:mm:ss ZZZZ yyyy"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,7 +62,32 @@
 	NSDictionary * tweet = [tweets objectAtIndex:indexPath.row];
 
     cell.tweetText.text = [tweet valueForKey:@"text"];
-	cell.tweetHandle.text = [[tweet objectForKey:@"user"] valueForKey:@"screen_name"];
+	cell.tweetHandle.text = [@"@" stringByAppendingString:[[tweet objectForKey:@"user"] valueForKey:@"screen_name"]];
+	
+	cell.tweetText.contentInset = UIEdgeInsetsMake(-10,-5,-10,-5);
+	cell.tweetText.textColor = [UIColor darkGrayColor];
+	
+	NSLog(@"Created at: %@", [tweet valueForKey:@"created_at"]);
+	
+	NSDate * postedDate = [dateFormatter dateFromString:[tweet valueForKey:@"created_at"]];
+	int difference = abs([postedDate timeIntervalSinceNow]);
+	
+	if (difference < 60) {
+		cell.tweetTime.text = [NSString stringWithFormat:@"%ds ago", difference];
+	} else {
+		difference = difference / 60;
+		if (difference < 60) {
+			cell.tweetTime.text = [NSString stringWithFormat:@"%dm ago", difference];
+		} else {
+			difference = difference / 60;
+			if (difference < 24) {
+				cell.tweetTime.text = [NSString stringWithFormat:@"%dh ago", difference];
+			} else {
+				difference = difference / 24;
+				cell.tweetTime.text = [NSString stringWithFormat:@"%ddays ago", difference];
+			}
+		}
+	}
     
     return cell;
 }
@@ -64,36 +97,27 @@
 	NSDictionary * tweet = [tweets objectAtIndex:indexPath.row];
 	NSString * tweetText = [tweet valueForKey:@"text"];
 
-	return 90;
-//	return [self heightForCellWithLabel: containingString:<#(NSString *)#>]
+	return [self heightForCellWithLabelContainingString:tweetText];
 }
 
-- (CGFloat)heightForCellWithLabel:(UILabel*)labelView containingString:(NSString*)string
+- (CGFloat)heightForCellWithLabelContainingString:(NSString*)string
 {
-    CGFloat horizontalPadding = 0;
-    CGFloat verticalPadding = 69;
-    CGFloat widthOfTextView = labelView.frame.size.width - horizontalPadding;
+    CGFloat horizontalPadding = 110;
+    CGFloat verticalPadding = 70;
+    CGFloat widthOfTextView = self.view.frame.size.width - horizontalPadding;
 	
+	NSDictionary *stringAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                      [UIFont systemFontOfSize:15], NSFontAttributeName,
+                                      [UIColor darkGrayColor], NSForegroundColorAttributeName,
+                                      nil];
 	
-	UIFont *font = [UIFont systemFontOfSize:18];
-	NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:string attributes:@{NSFontAttributeName: font}];
-	CGRect rect = [attributedText boundingRectWithSize:(CGSize){widthOfTextView, CGFLOAT_MAX}
-											   options:NSStringDrawingUsesLineFragmentOrigin
-											   context:nil];
-	CGFloat height = rect.size.height + verticalPadding;
+    CGRect newRect = [string boundingRectWithSize:(CGSize){widthOfTextView, CGFLOAT_MAX}
+												options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading)
+											 attributes:stringAttributes context:nil];
+	
+    CGFloat height = ceilf(newRect.size.height);
     
-	return height;
+	return height + verticalPadding;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

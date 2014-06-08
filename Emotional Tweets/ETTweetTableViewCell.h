@@ -11,7 +11,7 @@
 @interface ETTweetTableViewCell : UITableViewCell
 
 @property (nonatomic) IBOutlet UILabel * tweetHandle;
-@property (nonatomic) IBOutlet UILabel * tweetText;
+@property (nonatomic) IBOutlet UITextView * tweetText;
 @property (nonatomic) IBOutlet UILabel * tweetTime;
 @property (nonatomic) IBOutlet UIImageView * tweetMood;
 
