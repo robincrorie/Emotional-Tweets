@@ -21,9 +21,12 @@
 		1278AB301940E2FC0072A860 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1278AB0C1940E2FC0072A860 /* Foundation.framework */; };
 		1278AB311940E2FC0072A860 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1278AB101940E2FC0072A860 /* UIKit.framework */; };
 		1278AB391940E2FC0072A860 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1278AB371940E2FC0072A860 /* InfoPlist.strings */; };
-		1278AB3B1940E2FC0072A860 /* Emotional_TweetsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1278AB3A1940E2FC0072A860 /* Emotional_TweetsTests.m */; };
 		1278AB49194103910072A860 /* ETTweetTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1278AB48194103910072A860 /* ETTweetTableViewController.m */; };
 		1278AB4C194108FD0072A860 /* ETRetrieveTweets.m in Sources */ = {isa = PBXBuildFile; fileRef = 1278AB4B194108FD0072A860 /* ETRetrieveTweets.m */; };
+		1278AB4F1943A0320072A860 /* ETTweetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1278AB4E1943A0320072A860 /* ETTweetTableViewCell.m */; };
+		1278AB5A1943AB960072A860 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1278AB591943AB960072A860 /* SenTestingKit.framework */; };
+		129854661943BB43009948C6 /* ETRetrieveTweetsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 129854651943BB43009948C6 /* ETRetrieveTweetsTests.m */; };
+		1298546B1943BD2F009948C6 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1298546A1943BD2F009948C6 /* libOCMock.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,11 +59,22 @@
 		1278AB2E1940E2FC0072A860 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1278AB361940E2FC0072A860 /* Emotional TweetsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Emotional TweetsTests-Info.plist"; sourceTree = "<group>"; };
 		1278AB381940E2FC0072A860 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		1278AB3A1940E2FC0072A860 /* Emotional_TweetsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Emotional_TweetsTests.m; sourceTree = "<group>"; };
 		1278AB47194103910072A860 /* ETTweetTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETTweetTableViewController.h; sourceTree = "<group>"; };
 		1278AB48194103910072A860 /* ETTweetTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETTweetTableViewController.m; sourceTree = "<group>"; };
 		1278AB4A194108FD0072A860 /* ETRetrieveTweets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETRetrieveTweets.h; sourceTree = "<group>"; };
 		1278AB4B194108FD0072A860 /* ETRetrieveTweets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETRetrieveTweets.m; sourceTree = "<group>"; };
+		1278AB4D1943A0320072A860 /* ETTweetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETTweetTableViewCell.h; sourceTree = "<group>"; };
+		1278AB4E1943A0320072A860 /* ETTweetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETTweetTableViewCell.m; sourceTree = "<group>"; };
+		1278AB571943A1E90072A860 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = usr/lib/libOCMock.a; sourceTree = "<group>"; };
+		1278AB591943AB960072A860 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		129854651943BB43009948C6 /* ETRetrieveTweetsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETRetrieveTweetsTests.m; sourceTree = "<group>"; };
+		1298546A1943BD2F009948C6 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
+		1298546D1943BD5B009948C6 /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
+		1298546E1943BD5B009948C6 /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
+		1298546F1943BD5B009948C6 /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
+		129854701943BD5B009948C6 /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
+		129854711943BD5B009948C6 /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
+		129854721943BD5B009948C6 /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +92,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1298546B1943BD2F009948C6 /* libOCMock.a in Frameworks */,
+				1278AB5A1943AB960072A860 /* SenTestingKit.framework in Frameworks */,
 				1278AB2F1940E2FC0072A860 /* XCTest.framework in Frameworks */,
 				1278AB311940E2FC0072A860 /* UIKit.framework in Frameworks */,
 				1278AB301940E2FC0072A860 /* Foundation.framework in Frameworks */,
@@ -90,8 +106,9 @@
 		1278AB001940E2FC0072A860 = {
 			isa = PBXGroup;
 			children = (
+				129854691943BD2F009948C6 /* Libraries */,
 				1278AB121940E2FC0072A860 /* Emotional Tweets */,
-				1278AB341940E2FC0072A860 /* Emotional TweetsTests */,
+				1278AB341940E2FC0072A860 /* Emotional Tweets Tests */,
 				1278AB0B1940E2FC0072A860 /* Frameworks */,
 				1278AB0A1940E2FC0072A860 /* Products */,
 			);
@@ -109,6 +126,8 @@
 		1278AB0B1940E2FC0072A860 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1278AB591943AB960072A860 /* SenTestingKit.framework */,
+				1278AB571943A1E90072A860 /* libOCMock.a */,
 				1278AB0C1940E2FC0072A860 /* Foundation.framework */,
 				1278AB0E1940E2FC0072A860 /* CoreGraphics.framework */,
 				1278AB101940E2FC0072A860 /* UIKit.framework */,
@@ -130,6 +149,8 @@
 				1278AB48194103910072A860 /* ETTweetTableViewController.m */,
 				1278AB4A194108FD0072A860 /* ETRetrieveTweets.h */,
 				1278AB4B194108FD0072A860 /* ETRetrieveTweets.m */,
+				1278AB4D1943A0320072A860 /* ETTweetTableViewCell.h */,
+				1278AB4E1943A0320072A860 /* ETTweetTableViewCell.m */,
 				1278AB271940E2FC0072A860 /* Images.xcassets */,
 				1278AB131940E2FC0072A860 /* Supporting Files */,
 			);
@@ -147,12 +168,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		1278AB341940E2FC0072A860 /* Emotional TweetsTests */ = {
+		1278AB341940E2FC0072A860 /* Emotional Tweets Tests */ = {
 			isa = PBXGroup;
 			children = (
-				1278AB3A1940E2FC0072A860 /* Emotional_TweetsTests.m */,
 				1278AB351940E2FC0072A860 /* Supporting Files */,
+				129854651943BB43009948C6 /* ETRetrieveTweetsTests.m */,
 			);
+			name = "Emotional Tweets Tests";
 			path = "Emotional TweetsTests";
 			sourceTree = "<group>";
 		};
@@ -163,6 +185,28 @@
 				1278AB371940E2FC0072A860 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		129854691943BD2F009948C6 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				1298546C1943BD5B009948C6 /* OCMock */,
+				1298546A1943BD2F009948C6 /* libOCMock.a */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		1298546C1943BD5B009948C6 /* OCMock */ = {
+			isa = PBXGroup;
+			children = (
+				1298546D1943BD5B009948C6 /* NSNotificationCenter+OCMAdditions.h */,
+				1298546E1943BD5B009948C6 /* OCMArg.h */,
+				1298546F1943BD5B009948C6 /* OCMConstraint.h */,
+				129854701943BD5B009948C6 /* OCMock.h */,
+				129854711943BD5B009948C6 /* OCMockObject.h */,
+				129854721943BD5B009948C6 /* OCMockRecorder.h */,
+			);
+			path = OCMock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,6 +312,7 @@
 				1278AB4C194108FD0072A860 /* ETRetrieveTweets.m in Sources */,
 				1278AB261940E2FC0072A860 /* ETSearchViewController.m in Sources */,
 				1278AB191940E2FC0072A860 /* main.m in Sources */,
+				1278AB4F1943A0320072A860 /* ETTweetTableViewCell.m in Sources */,
 				1278AB1D1940E2FC0072A860 /* ETAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,7 +321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1278AB3B1940E2FC0072A860 /* Emotional_TweetsTests.m in Sources */,
+				129854661943BB43009948C6 /* ETRetrieveTweetsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,7 +450,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Emotional Tweets/Emotional Tweets-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				INFOPLIST_FILE = "Emotional Tweets/Emotional Tweets-Info.plist";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -418,7 +469,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Emotional Tweets/Emotional Tweets-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				INFOPLIST_FILE = "Emotional Tweets/Emotional Tweets-Info.plist";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -439,7 +496,24 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Libraries\"/**",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				INFOPLIST_FILE = "Emotional TweetsTests/Emotional TweetsTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(PROJECT_DIR)/Libraries\"/**",
+					"$(PROJECT_DIR)/Libraries",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-all_load",
+					"-ObjC",
+					"-framework",
+					XCTest,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -457,7 +531,24 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Emotional Tweets/Emotional Tweets-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Libraries\"/**",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				INFOPLIST_FILE = "Emotional TweetsTests/Emotional TweetsTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(PROJECT_DIR)/Libraries\"/**",
+					"$(PROJECT_DIR)/Libraries",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-all_load",
+					"-ObjC",
+					"-framework",
+					XCTest,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -483,6 +574,7 @@
 				1278AB401940E2FC0072A860 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1278AB411940E2FC0072A860 /* Build configuration list for PBXNativeTarget "Emotional TweetsTests" */ = {
 			isa = XCConfigurationList;
@@ -491,6 +583,7 @@
 				1278AB431940E2FC0072A860 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

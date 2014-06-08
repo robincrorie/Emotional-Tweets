@@ -7,11 +7,15 @@
 //
 
 #import "ETSearchViewController.h"
+#import "ETRetrieveTweets.h"
+#import "ETTweetTableViewController.h"
 
 @interface ETSearchViewController () <UITextFieldDelegate>
 {
 	IBOutlet UITextField * searchInput;
 	IBOutlet UIButton * submitButton;
+	
+	NSMutableArray * tweets;
 }
 
 @end
@@ -27,7 +31,15 @@
 
 - (IBAction)submit:(id)sender
 {
-	[self performSegueWithIdentifier:@"submit" sender:self];
+	NSError * error = nil;
+	tweets = [ETRetrieveTweets fetchTweetsForSearchTerm:searchInput.text error:&error];
+	
+	if (tweets.count > 0) {
+		[self performSegueWithIdentifier:@"submit" sender:self];
+	} else {
+		UIAlertView * noResultsAlert = [[UIAlertView alloc] initWithTitle:@"No Results" message:@"Please try a different search term." delegate:self cancelButtonTitle:@"Try Again" otherButtonTitles:nil];
+		[noResultsAlert show];
+	}
 }
 
 - (void)styleTextFields:(UIView*)view {
@@ -49,6 +61,14 @@
             [self styleTextFields:currentView];
         }
     }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+	if ([segue.identifier isEqualToString:@"submit"]) {
+		ETTweetTableViewController * controller = (ETTweetTableViewController*)segue.destinationViewController;
+		controller.tweets = tweets;
+	}
 }
 
 - (void)didReceiveMemoryWarning

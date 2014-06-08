@@ -37,6 +37,14 @@
                BlueprintName = "Emotional TweetsTests"
                ReferencedContainer = "container:Emotional Tweets.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "Emotional_TweetsTests">
+               </Test>
+               <Test
+                  Identifier = "Emotional_TweetsTests/testExample">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>

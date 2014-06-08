@@ -7,6 +7,7 @@
 //
 
 #import "ETTweetTableViewController.h"
+#import "ETTweetTableViewCell.h"
 
 @interface ETTweetTableViewController ()
 
@@ -27,8 +28,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
-	tweets = [[NSMutableArray alloc] initWithObjects:@"string", nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,13 +49,41 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tweet" forIndexPath:indexPath];
+    ETTweetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tweet" forIndexPath:indexPath];
     
-    // Configure the cell...
+	NSDictionary * tweet = [tweets objectAtIndex:indexPath.row];
+
+    cell.tweetText.text = [tweet valueForKey:@"text"];
+	cell.tweetHandle.text = [[tweet objectForKey:@"user"] valueForKey:@"screen_name"];
     
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	NSDictionary * tweet = [tweets objectAtIndex:indexPath.row];
+	NSString * tweetText = [tweet valueForKey:@"text"];
+
+	return 90;
+//	return [self heightForCellWithLabel: containingString:<#(NSString *)#>]
+}
+
+- (CGFloat)heightForCellWithLabel:(UILabel*)labelView containingString:(NSString*)string
+{
+    CGFloat horizontalPadding = 0;
+    CGFloat verticalPadding = 69;
+    CGFloat widthOfTextView = labelView.frame.size.width - horizontalPadding;
+	
+	
+	UIFont *font = [UIFont systemFontOfSize:18];
+	NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:string attributes:@{NSFontAttributeName: font}];
+	CGRect rect = [attributedText boundingRectWithSize:(CGSize){widthOfTextView, CGFLOAT_MAX}
+											   options:NSStringDrawingUsesLineFragmentOrigin
+											   context:nil];
+	CGFloat height = rect.size.height + verticalPadding;
+    
+	return height;
+}
 
 /*
 #pragma mark - Navigation

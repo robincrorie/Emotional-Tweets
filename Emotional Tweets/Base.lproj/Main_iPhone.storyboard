@@ -60,7 +60,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tweet" id="8mo-Rb-ASf">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tweet" id="8mo-Rb-ASf" customClass="ETTweetTableViewCell">
                                 <rect key="frame" x="0.0" y="55" width="320" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8mo-Rb-ASf" id="0pk-8g-ayj">
@@ -102,6 +102,12 @@
                                         <constraint firstAttribute="trailing" secondItem="dAE-FS-U3W" secondAttribute="trailing" constant="20" id="Fmf-Hg-4Tp"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="tweetHandle" destination="ubX-LT-UCZ" id="XSf-iA-8hh"/>
+                                    <outlet property="tweetMood" destination="dAE-FS-U3W" id="T8S-SH-XRs"/>
+                                    <outlet property="tweetText" destination="IkI-WW-Mjh" id="aXt-Hu-zRs"/>
+                                    <outlet property="tweetTime" destination="J5d-uN-NbJ" id="4xd-js-gZe"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

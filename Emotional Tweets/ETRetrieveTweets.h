@@ -10,4 +10,8 @@
 
 @interface ETRetrieveTweets : NSObject
 
++ (NSMutableArray*)fetchTweetsForSearchTerm:(NSString*)searchTerm error:(NSError**)error;
++ (NSString *)getAccessToken:(NSError**)error;
++ (NSString *)base64EncodeString:(NSString *)strData;
+
 @end

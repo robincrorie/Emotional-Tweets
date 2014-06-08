@@ -12,21 +12,100 @@
 
 @implementation ETRetrieveTweets
 
-- (void)fetchTweetsForSearchTerm:(NSString*)searchTerm
++ (NSMutableArray*)fetchTweetsForSearchTerm:(NSString*)searchTerm error:(NSError**)error
 {
 	
+	NSString *path = [[NSString stringWithFormat:@"https://api.twitter.com/1.1/search/tweets.json?q=%@&result_type=mixed&count=10", searchTerm] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:path]];
+	
+	[request setHTTPMethod:@"GET"];
+	[request setValue:[@"Bearer " stringByAppendingString:[self getAccessToken:&*error]] forHTTPHeaderField:@"Authorization"];
+	[request setValue:@"application/x-www-form-urlencoded;charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
+	
+	NSHTTPURLResponse *response;
+	NSData* xmlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+	
+	NSString *theResult = [[NSString alloc] initWithBytes:[xmlData bytes] length:[xmlData length] encoding:NSUTF8StringEncoding];
+	NSLog(@"%@", theResult);
+	
+	NSError * jsonParsingError;
+	NSDictionary * jsonResults = [NSJSONSerialization JSONObjectWithData:xmlData options:0 error:&jsonParsingError];
+	
+	if ([jsonResults objectForKey:@"errors"]) {
+		NSDictionary * errorDict = [jsonResults objectForKey:@"errors"];
+		NSString * message = [[errorDict valueForKey:@"message"] objectAtIndex:0];
+		NSNumber * code = [[errorDict valueForKey:@"code"] objectAtIndex:0];
+		NSDictionary *errorDictionary = @{ NSLocalizedDescriptionKey : message};
+		*error = [[NSError alloc] initWithDomain:@"ETRetrieveTweets" code:[code integerValue] userInfo:errorDictionary];
+		return nil;
+	}
+	
+	NSMutableArray *tweets = [jsonResults objectForKey:@"statuses"];
+	
+	return tweets;
 }
 
-- (void)fetchedData:(NSData *)responseData {
++ (NSString *)getAccessToken:(NSError**)error
+{
+	NSString *consumerKey = @"uR5NOvcY91D6B5bbsUhV2KdrO";
 
-    NSError* error;
-    NSDictionary* json = [NSJSONSerialization
-						  JSONObjectWithData:responseData
-						  
-						  options:kNilOptions
-						  error:&error];
+	NSString *consumerSecret = @"b2K0gppRmUqbXuFg1YwUwuwTglB53QfnjHTKpGlP8AUFOeuXjo";
+
+	NSString *consumerKeyRFC1738 = [consumerKey stringByAddingPercentEscapesUsingEncoding: NSASCIIStringEncoding];
+
+	NSString *consumerSecretRFC1738 = [consumerSecret stringByAddingPercentEscapesUsingEncoding: NSASCIIStringEncoding];
+
+	NSString *concatKeySecret = [[consumerKeyRFC1738 stringByAppendingString:@":"] stringByAppendingString:consumerSecretRFC1738];
+
+	NSString *concatKeySecretBase64 = [self base64EncodeString:concatKeySecret];
+
+	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://api.twitter.com/oauth2/token"]];
+
+	[request setHTTPMethod:@"POST"];
+
+	[request setValue:[@"Basic " stringByAppendingString:concatKeySecretBase64] forHTTPHeaderField:@"Authorization"];
+
+	[request setValue:@"application/x-www-form-urlencoded;charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
+
+	NSString *str = @"grant_type=client_credentials";
+
+	NSData *httpBody = [str dataUsingEncoding:NSUTF8StringEncoding];
+
+	[request setHTTPBody:httpBody];
+
+	NSError * connectionError = nil;
+	NSHTTPURLResponse *response;
+	NSData* xmlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&connectionError];
 	
-    NSArray* latestLoans = [json objectForKey:@""];
+	if (connectionError) {
+		*error = connectionError;
+		return nil;
+	}
+	
+	if (response.statusCode == 200) {
+		
+		NSError * jsonParsingError;
+		NSDictionary * jsonResults = [NSJSONSerialization JSONObjectWithData:xmlData options:0 error:&jsonParsingError];
+		
+		if ([[jsonResults valueForKey:@"token_type"] isEqualToString:@"bearer"]) {
+			NSString * access_token = [jsonResults valueForKey:@"access_token"];
+			return access_token;
+		}
+	} else {
+		NSDictionary *errorDictionary = @{ NSLocalizedDescriptionKey : [NSString stringWithFormat:@"Error, responded with status code: %ld", (long)response.statusCode]};
+		*error = [[NSError alloc] initWithDomain:@"ETRetrieveTweets" code:response.statusCode userInfo:errorDictionary];
+	}
+	
+	return nil;
+}
+
++ (NSString *)base64EncodeString:(NSString *)strData {
+	
+	NSData *nsdata = [strData dataUsingEncoding:NSUTF8StringEncoding];
+	
+	NSString *base64Encoded = [nsdata base64EncodedStringWithOptions:0];
+	
+	return base64Encoded;
 }
 
 @end
