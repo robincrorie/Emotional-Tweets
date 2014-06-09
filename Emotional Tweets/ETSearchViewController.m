@@ -9,11 +9,14 @@
 #import "ETSearchViewController.h"
 #import "ETRetrieveTweets.h"
 #import "ETTweetTableViewController.h"
+#import "Loading.h"
 
 @interface ETSearchViewController () <UITextFieldDelegate>
 {
 	IBOutlet UITextField * searchInput;
 	IBOutlet UIButton * submitButton;
+	
+	Loading * loading;
 	
 	NSMutableArray * tweets;
 }
@@ -27,19 +30,31 @@
     [super viewDidLoad];
 	
 	[self styleTextFields:self.view];
+	
+	loading = [Loading sharedInstance];
 }
 
 - (IBAction)submit:(id)sender
 {
-	NSError * error = nil;
-	tweets = [ETRetrieveTweets fetchTweetsForSearchTerm:searchInput.text error:&error];
+	[loading show];
+	[searchInput resignFirstResponder];
 	
-	if (tweets.count > 0) {
-		[self performSegueWithIdentifier:@"submit" sender:self];
-	} else {
-		UIAlertView * noResultsAlert = [[UIAlertView alloc] initWithTitle:@"No Results" message:@"Please try a different search term." delegate:self cancelButtonTitle:@"Try Again" otherButtonTitles:nil];
-		[noResultsAlert show];
-	}
+	dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+		
+		NSError * error = nil;
+		tweets = [ETRetrieveTweets fetchTweetsForSearchTerm:searchInput.text error:&error];
+		
+		dispatch_async( dispatch_get_main_queue(), ^{
+			
+			if (tweets.count > 0) {
+				[self performSegueWithIdentifier:@"submit" sender:self];
+			} else {
+				UIAlertView * noResultsAlert = [[UIAlertView alloc] initWithTitle:@"No Results" message:@"Please try a different search term." delegate:self cancelButtonTitle:@"Try Again" otherButtonTitles:nil];
+				[noResultsAlert show];
+			}
+			[loading hide];
+		});
+	});
 }
 
 - (void)styleTextFields:(UIView*)view {

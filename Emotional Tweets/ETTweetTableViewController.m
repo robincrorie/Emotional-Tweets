@@ -8,6 +8,7 @@
 
 #import "ETTweetTableViewController.h"
 #import "ETTweetTableViewCell.h"
+#import "ETTweetObject.h"
 
 @interface ETTweetTableViewController ()
 {
@@ -31,11 +32,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
-	dateFormatter = [[NSDateFormatter alloc] init];
-	NSLocale * loc = [[NSLocale alloc] initWithLocaleIdentifier:@"en_UK"];
-	[dateFormatter setLocale:loc];
-	[dateFormatter setDateFormat:@"EEE MMM dd HH:mm:ss ZZZZ yyyy"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,18 +55,16 @@
 {
     ETTweetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tweet" forIndexPath:indexPath];
     
-	NSDictionary * tweet = [tweets objectAtIndex:indexPath.row];
+	ETTweetObject * tweet = [tweets objectAtIndex:indexPath.row];
 
-    cell.tweetText.text = [tweet valueForKey:@"text"];
-	cell.tweetHandle.text = [@"@" stringByAppendingString:[[tweet objectForKey:@"user"] valueForKey:@"screen_name"]];
+    cell.tweetText.text = tweet.tweetText;
+	cell.tweetHandle.text = tweet.tweetHandle;
 	
 	cell.tweetText.contentInset = UIEdgeInsetsMake(-10,-5,-10,-5);
 	cell.tweetText.textColor = [UIColor darkGrayColor];
+	cell.tweetMood.image = tweet.moodImage;
 	
-	NSLog(@"Created at: %@", [tweet valueForKey:@"created_at"]);
-	
-	NSDate * postedDate = [dateFormatter dateFromString:[tweet valueForKey:@"created_at"]];
-	int difference = abs([postedDate timeIntervalSinceNow]);
+	int difference = abs([tweet.postedDate timeIntervalSinceNow]);
 	
 	if (difference < 60) {
 		cell.tweetTime.text = [NSString stringWithFormat:@"%ds ago", difference];
@@ -84,7 +78,11 @@
 				cell.tweetTime.text = [NSString stringWithFormat:@"%dh ago", difference];
 			} else {
 				difference = difference / 24;
-				cell.tweetTime.text = [NSString stringWithFormat:@"%ddays ago", difference];
+				if (difference == 1) {
+					cell.tweetTime.text = [NSString stringWithFormat:@"%dday ago", difference];
+				} else {
+					cell.tweetTime.text = [NSString stringWithFormat:@"%ddays ago", difference];
+				}
 			}
 		}
 	}
@@ -94,10 +92,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	NSDictionary * tweet = [tweets objectAtIndex:indexPath.row];
-	NSString * tweetText = [tweet valueForKey:@"text"];
+	ETTweetObject * tweet = [tweets objectAtIndex:indexPath.row];
 
-	return [self heightForCellWithLabelContainingString:tweetText];
+	return [self heightForCellWithLabelContainingString:tweet.tweetText];
 }
 
 - (CGFloat)heightForCellWithLabelContainingString:(NSString*)string

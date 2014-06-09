@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		120EF9AE1945D3E2002067C0 /* Loading.m in Sources */ = {isa = PBXBuildFile; fileRef = 120EF9AD1945D3E2002067C0 /* Loading.m */; };
 		1278AB0D1940E2FC0072A860 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1278AB0C1940E2FC0072A860 /* Foundation.framework */; };
 		1278AB0F1940E2FC0072A860 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1278AB0E1940E2FC0072A860 /* CoreGraphics.framework */; };
 		1278AB111940E2FC0072A860 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1278AB101940E2FC0072A860 /* UIKit.framework */; };
@@ -27,6 +28,10 @@
 		1278AB5A1943AB960072A860 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1278AB591943AB960072A860 /* SenTestingKit.framework */; };
 		129854661943BB43009948C6 /* ETRetrieveTweetsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 129854651943BB43009948C6 /* ETRetrieveTweetsTests.m */; };
 		1298546B1943BD2F009948C6 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1298546A1943BD2F009948C6 /* libOCMock.a */; };
+		12B2CEEA1945A5BB00530BE6 /* ETSentiment.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B2CEE91945A5BB00530BE6 /* ETSentiment.m */; };
+		12B2CEEE1945A61000530BE6 /* ETTweetObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B2CEED1945A61000530BE6 /* ETTweetObject.m */; };
+		12B2CEF31945A64300530BE6 /* ETTweetObjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B2CEF11945A64300530BE6 /* ETTweetObjectTests.m */; };
+		12B2CEF51945B8ED00530BE6 /* ETSentimentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B2CEF41945B8ED00530BE6 /* ETSentimentTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		120EF9AC1945D3E2002067C0 /* Loading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Loading.h; sourceTree = "<group>"; };
+		120EF9AD1945D3E2002067C0 /* Loading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Loading.m; sourceTree = "<group>"; };
 		1278AB091940E2FC0072A860 /* Emotional Tweets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Emotional Tweets.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1278AB0C1940E2FC0072A860 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1278AB0E1940E2FC0072A860 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -75,6 +82,12 @@
 		129854701943BD5B009948C6 /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
 		129854711943BD5B009948C6 /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
 		129854721943BD5B009948C6 /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
+		12B2CEE81945A5BB00530BE6 /* ETSentiment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETSentiment.h; sourceTree = "<group>"; };
+		12B2CEE91945A5BB00530BE6 /* ETSentiment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETSentiment.m; sourceTree = "<group>"; };
+		12B2CEEC1945A61000530BE6 /* ETTweetObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ETTweetObject.h; sourceTree = "<group>"; };
+		12B2CEED1945A61000530BE6 /* ETTweetObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETTweetObject.m; sourceTree = "<group>"; };
+		12B2CEF11945A64300530BE6 /* ETTweetObjectTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETTweetObjectTests.m; sourceTree = "<group>"; };
+		12B2CEF41945B8ED00530BE6 /* ETSentimentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ETSentimentTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +116,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		120EF9AB1945D3E2002067C0 /* LoadingScreen */ = {
+			isa = PBXGroup;
+			children = (
+				120EF9AC1945D3E2002067C0 /* Loading.h */,
+				120EF9AD1945D3E2002067C0 /* Loading.m */,
+			);
+			path = LoadingScreen;
+			sourceTree = "<group>";
+		};
 		1278AB001940E2FC0072A860 = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +161,8 @@
 		1278AB121940E2FC0072A860 /* Emotional Tweets */ = {
 			isa = PBXGroup;
 			children = (
+				120EF9AB1945D3E2002067C0 /* LoadingScreen */,
+				12B2CEEB1945A5ED00530BE6 /* Objects */,
 				1278AB1B1940E2FC0072A860 /* ETAppDelegate.h */,
 				1278AB1C1940E2FC0072A860 /* ETAppDelegate.m */,
 				1278AB1E1940E2FC0072A860 /* Main_iPhone.storyboard */,
@@ -149,6 +173,8 @@
 				1278AB48194103910072A860 /* ETTweetTableViewController.m */,
 				1278AB4A194108FD0072A860 /* ETRetrieveTweets.h */,
 				1278AB4B194108FD0072A860 /* ETRetrieveTweets.m */,
+				12B2CEE81945A5BB00530BE6 /* ETSentiment.h */,
+				12B2CEE91945A5BB00530BE6 /* ETSentiment.m */,
 				1278AB4D1943A0320072A860 /* ETTweetTableViewCell.h */,
 				1278AB4E1943A0320072A860 /* ETTweetTableViewCell.m */,
 				1278AB271940E2FC0072A860 /* Images.xcassets */,
@@ -173,6 +199,8 @@
 			children = (
 				1278AB351940E2FC0072A860 /* Supporting Files */,
 				129854651943BB43009948C6 /* ETRetrieveTweetsTests.m */,
+				12B2CEF11945A64300530BE6 /* ETTweetObjectTests.m */,
+				12B2CEF41945B8ED00530BE6 /* ETSentimentTests.m */,
 			);
 			name = "Emotional Tweets Tests";
 			path = "Emotional TweetsTests";
@@ -207,6 +235,15 @@
 				129854721943BD5B009948C6 /* OCMockRecorder.h */,
 			);
 			path = OCMock;
+			sourceTree = "<group>";
+		};
+		12B2CEEB1945A5ED00530BE6 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				12B2CEEC1945A61000530BE6 /* ETTweetObject.h */,
+				12B2CEED1945A61000530BE6 /* ETTweetObject.m */,
+			);
+			name = Objects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,9 +347,12 @@
 			files = (
 				1278AB49194103910072A860 /* ETTweetTableViewController.m in Sources */,
 				1278AB4C194108FD0072A860 /* ETRetrieveTweets.m in Sources */,
+				120EF9AE1945D3E2002067C0 /* Loading.m in Sources */,
 				1278AB261940E2FC0072A860 /* ETSearchViewController.m in Sources */,
+				12B2CEEE1945A61000530BE6 /* ETTweetObject.m in Sources */,
 				1278AB191940E2FC0072A860 /* main.m in Sources */,
 				1278AB4F1943A0320072A860 /* ETTweetTableViewCell.m in Sources */,
+				12B2CEEA1945A5BB00530BE6 /* ETSentiment.m in Sources */,
 				1278AB1D1940E2FC0072A860 /* ETAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -321,7 +361,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12B2CEF51945B8ED00530BE6 /* ETSentimentTests.m in Sources */,
 				129854661943BB43009948C6 /* ETRetrieveTweetsTests.m in Sources */,
+				12B2CEF31945A64300530BE6 /* ETTweetObjectTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

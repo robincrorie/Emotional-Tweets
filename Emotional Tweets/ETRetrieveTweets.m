@@ -9,6 +9,8 @@
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
 #import "ETRetrieveTweets.h"
+#import "ETSentiment.h"
+#import "ETTweetObject.h"
 
 @implementation ETRetrieveTweets
 
@@ -40,7 +42,30 @@
 		return nil;
 	}
 	
-	NSMutableArray *tweets = [jsonResults objectForKey:@"statuses"];
+	NSDateFormatter * dateFormatter = [[NSDateFormatter alloc] init];
+	NSLocale * loc = [[NSLocale alloc] initWithLocaleIdentifier:@"en_UK"];
+	[dateFormatter setLocale:loc];
+	[dateFormatter setDateFormat:@"EEE MMM dd HH:mm:ss ZZZZ yyyy"];
+	
+	NSMutableArray * tweets = [[NSMutableArray alloc] init];
+	
+	for (NSDictionary * tweetDic in [jsonResults objectForKey:@"statuses"]) {
+		ETTweetObject * tweet = [[ETTweetObject alloc] init];
+		tweet.tweetHandle = [@"@" stringByAppendingString:[[tweetDic objectForKey:@"user"] valueForKey:@"screen_name"]];
+		tweet.tweetText = [tweetDic valueForKey:@"text"];
+		tweet.postedDate = [dateFormatter dateFromString:[tweetDic valueForKey:@"created_at"]];
+		
+		CGFloat moodValue = [ETSentiment getMoodValueForTweet:tweet error:&*error];
+		if (moodValue < -0.3) {
+			tweet.moodImage = [UIImage imageNamed:@"FaceSad"];
+		} else if (moodValue > -0.3 && moodValue < 0.3) {
+			tweet.moodImage = [UIImage imageNamed:@"FaceIndifferent"];
+		} else if (moodValue > 0.3) {
+			tweet.moodImage = [UIImage imageNamed:@"FaceHappy"];
+		}
+		
+		[tweets addObject:tweet];
+	}
 	
 	return tweets;
 }
