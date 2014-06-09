@@ -11,6 +11,8 @@ Uncommited/Unfinished Changes
 - When scrolling to the 3rd from last post, a further 10 tweets are loaded and added to the bottom of the table, this saves loading un-necessary amounts of large tweets.
 - Pull to refresh - loads newer search results and adds them to the top of the table.
 - Further Unit test coverage
+- Better error handling
+- Validation checking on the search input field
 
 Side Notes
 ==========
