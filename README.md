@@ -13,8 +13,3 @@ Uncommited/Unfinished Changes
 - Further Unit test coverage
 - Better error handling
 - Validation checking on the search input field
-
-Side Notes
-==========
-
-Unfortunatly I am currently in hospital as I have sustained a knee injury that requires an operation. Due to this I have been unable to dedicate as much time to the project as I would have hoped. Plus I am having to tether with my phones internet connection to work on the project witch is proving problematic at times. I am due to be released from hospital in the next day or two.
